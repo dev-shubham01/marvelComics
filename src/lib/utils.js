@@ -1,4 +1,6 @@
 import md5 from "md5";
+//Here we need to use environment varibales but for simplicity I am using this method
+
 const REACT_APP_API_KEY='74ff816c637f745c2b508c43e08f45d5'
 const REACT_APP_PRIVATE_KEY='b2072dc3d6aaa50f7395d1ccc89bbfb573ed72c9'
 const REACT_APP_BASE_URL='http://gateway.marvel.com'

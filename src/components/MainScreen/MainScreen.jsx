@@ -11,12 +11,14 @@ export default function MainScreen({
   setClearFilter,
   clearFilter,
   selectedCharacter,
+  setFilteredComics
 }) {
   const [comics, setComics] = useState(filteredComics || []);
 
   const [recordPerPage, setRecordsPerPage] = useState(10);
 
   const [currentPage, setCurrentPage] = useState(1);
+
   const {
     isLoading,
     data: comic,
@@ -25,12 +27,14 @@ export default function MainScreen({
   useEffect(() => {
     if (clearFilter) {
       refetch();
+      setComics(comic?.data?.results);
     }
     filteredComics.length > 0
       ? setComics(filteredComics)
       : setComics(comic?.data?.results);
   }, [isLoading, filteredComics, clearFilter,comic?.data?.results,refetch]);
 
+  
   useEffect(() => {
     setCurrentPage(1);
   }, [filteredComics]);

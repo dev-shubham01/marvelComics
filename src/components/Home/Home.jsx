@@ -16,7 +16,7 @@ export default function Home() {
   const [allSearchedComics, setAllSearchedComics] = useState({});
   const [selectedCharacter, setSelectedCharacter] = useState([]);
   useEffect(() => {
-    if (clearFilter) {
+    if (clearFilter ) {
       setAllSearchedComics([]);
       setFilteredComics([]);
       setSelectedComicId(null);
@@ -49,15 +49,14 @@ export default function Home() {
 
   const handleDeselectedComicId = (id, character) => {
     let allSearchedComicsKeys = Object.keys(allSearchedComics);
-    // setSelectedComicId(id)
     let allLeftSearchedComicsAfterDeselect = allSearchedComicsKeys.filter(
-      (comics) => comics !== id,
+      (comics) => comics.toString() !== id.toString(),
     );
     let allComicsSelected = [];
-
+   
     allLeftSearchedComicsAfterDeselect.map((comics) =>
       allComicsSelected.push(...allSearchedComics[comics]),
-    );
+    )
     let tempArray = allSearchedComics;
     delete tempArray[id];
     setAllSearchedComics(tempArray);
@@ -65,10 +64,11 @@ export default function Home() {
     const leftCharacters = selectedCharacter.filter(
       (characterName) => characterName !== character?.name,
     );
+    
     setSelectedCharacter(leftCharacters);
     setSelectedComicId(null);
   };
-
+ 
   const handleSearchBar = (searchValue) => {
     setSearchText(searchValue);
   };
@@ -76,6 +76,8 @@ export default function Home() {
   const handleSearch = (searchValue) => {
     if (searchValue === "Enter") setSearchValue(searchText);
   };
+
+  
   return (
     <div className={styles.homePage}>
       <Navbar
@@ -104,6 +106,7 @@ export default function Home() {
             clearFilter={clearFilter}
             filteredComics={filteredComics}
             setClearFilter={setClearFilter}
+            setFilteredComics={setFilteredComics}
             selectedCharacter={selectedCharacter}
           />
         </div>
