@@ -50,7 +50,7 @@ export default function SearchScreen({ searchValue, closeSearch }) {
         ) : (
           <>
             {" "}
-            {currentPageComics?.length > 0 && (
+            {currentPageComics?.length > 0 ? (
               <>
                 {currentPageComics.map((comic) => (
                   <MovieCard
@@ -60,16 +60,18 @@ export default function SearchScreen({ searchValue, closeSearch }) {
                   />
                 ))}
               </>
-            )}
+            ):<div className={styles.noResult}>No Result Found</div>}
           </>
         )}
       </div>
+      
       <Pagination
         currentPage={currentPage}
         totalCount={searchComics?.length}
         pageSize={resultPerPage}
         onPageChange={(page) => setCurrentPage(page)}
       />
+   
     </div>
   );
 }

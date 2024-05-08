@@ -36,8 +36,13 @@
   height: 100vh;
 }
 
+.noResult{
+  
+    margin: auto;
+    font-size: 30px;
+    font-weight: 700;
 
-
+}
 .searchValue {
   /* color: #e62429; */
   font-size: 23px;
