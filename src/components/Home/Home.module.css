@@ -1,0 +1,19 @@
+.homePage{
+    position: relative;
+    background-color: rgba(82, 82, 82, 0.888);
+    min-height: calc(100vh - 10px);
+    padding-bottom: 10px;
+}
+
+.mainScreen{
+max-width: 1300px;
+}
+
+.searchScreen{
+   width: 100%;
+    min-height: calc(100vh - 100px);
+    left: 50%;
+    transform: translate(-50% , 0);
+    position: absolute;
+    top: 40px;
+}

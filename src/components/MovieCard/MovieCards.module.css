@@ -1,0 +1,43 @@
+/* movieCard.module.css */
+
+.movieCard {
+  border-radius: 5px 5px 2px 2px;
+
+
+  width: 18%;
+
+  min-width: 200px;
+
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 300px;
+}
+
+.moviesImage {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  margin: 0;
+  height: 88%;
+}
+
+.imgTitle {
+  background-color: black;
+  color: white;
+  padding: 0px;
+  border-radius: 0 0 2px 2px;
+  z-index: 3;
+  margin: 0;
+  width: 100%;
+  height: 10%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+.titleHeading{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 60%;
+}

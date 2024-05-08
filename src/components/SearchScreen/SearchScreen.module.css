@@ -1,0 +1,53 @@
+.searchScreen{
+  min-height: 350px;
+}
+.heading , .searchScreen{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  max-width: 1300px;
+  margin: auto;
+}
+.loader{
+  color:#e62429 !important;
+  margin: auto;
+}
+.searchTop{
+  
+  min-height: 150px;
+  background-color: rgba(82, 82, 82, 0.888);
+}
+.search {
+ 
+  height: calc(100vh-100px);
+  overflow-y: hidden;
+}
+
+.searchHeading {
+  color: white;
+}
+
+.centeredProgress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+
+.searchValue {
+  /* color: #e62429; */
+  font-size: 23px;
+  font-weight: 800;
+}
+.CloseIcon{
+  cursor: pointer;
+}
+.CloseIcon:hover{
+  background-color: #e62429;
+  border-radius: 50%;
+
+}

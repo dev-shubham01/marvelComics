@@ -1,0 +1,60 @@
+.selected,
+.notSelected {
+    position: relative;
+    user-select: none;
+    margin: 20px 20px 20px 0;
+}
+
+
+.selected:last-of-type,
+.notSelected:last-of-type {
+    margin: 20px 0;
+}
+
+.carouselCards {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    background-color: rgb(0, 0, 0);
+    border: 3px solid black;
+    cursor: pointer;
+
+}
+
+.carouselCardsSelected {
+    border: 3px solid #29dbff;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.tick,
+.untick {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    cursor: pointer;
+    color: #0096c3;
+
+
+}
+
+.untick {
+    display: none;
+    color: rgba(255, 255, 255, 0);
+
+
+}
