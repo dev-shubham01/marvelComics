@@ -23,7 +23,7 @@ export default function SearchScreen({ searchValue, closeSearch }) {
     });
   useEffect(() => {
     if (!isSearchResultLoading) setSearchComics(searchResultComics);
-  }, [searchValue, isSearchResultLoading]);
+  }, [searchValue, isSearchResultLoading,searchResultComics]);
 
   const currentPageComics = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * resultPerPage;

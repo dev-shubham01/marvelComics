@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import Carousel from "../Carousel/Carousel";
 import MainScreen from "../MainScreen/MainScreen";
-import { fetchComicsByCharacterId, fetchComicsByName } from "../../lib/utils";
+import { fetchComicsByCharacterId} from "../../lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import SearchScreen from "../SearchScreen/SearchScreen";
 import styles from "./Home.module.css";
@@ -51,7 +51,7 @@ export default function Home() {
     let allSearchedComicsKeys = Object.keys(allSearchedComics);
     // setSelectedComicId(id)
     let allLeftSearchedComicsAfterDeselect = allSearchedComicsKeys.filter(
-      (comics) => comics != id,
+      (comics) => comics !== id,
     );
     let allComicsSelected = [];
 
@@ -63,7 +63,7 @@ export default function Home() {
     setAllSearchedComics(tempArray);
     setFilteredComics(allComicsSelected);
     const leftCharacters = selectedCharacter.filter(
-      (characterName) => characterName != character?.name,
+      (characterName) => characterName !== character?.name,
     );
     setSelectedCharacter(leftCharacters);
     setSelectedComicId(null);
@@ -74,7 +74,7 @@ export default function Home() {
   };
 
   const handleSearch = (searchValue) => {
-    if (searchValue == "Enter") setSearchValue(searchText);
+    if (searchValue === "Enter") setSearchValue(searchText);
   };
   return (
     <div className={styles.homePage}>

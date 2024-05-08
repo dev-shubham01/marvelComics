@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CarouselCard.module.css";
-import { fetchCharacters } from "../../lib/utils";
 import DoneIcon from "@mui/icons-material/Done";
 
 export default function CarouselCards({

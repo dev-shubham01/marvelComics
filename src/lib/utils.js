@@ -1,13 +1,16 @@
 import md5 from "md5";
+const REACT_APP_API_KEY='74ff816c637f745c2b508c43e08f45d5'
+const REACT_APP_PRIVATE_KEY='b2072dc3d6aaa50f7395d1ccc89bbfb573ed72c9'
+const REACT_APP_BASE_URL='http://gateway.marvel.com'
 
 const getHash = (ts, privateKey, publicKey) => {
   return md5(ts + privateKey + publicKey).toString();
 };
 
-let API_URL =process.env.REACT_APP_BASE_URL;
+let API_URL =REACT_APP_BASE_URL;
 let ts = Date.now().toString();
-let apiKey = process.env.REACT_APP_API_KEY;
-let privateKey = process.env.REACT_APP_PRIVATE_KEY;
+let apiKey = REACT_APP_API_KEY;
+let privateKey = REACT_APP_PRIVATE_KEY;
 
 const fetchCharacters = async () => {
     let heroUrl = `${API_URL}/v1/public/characters`;

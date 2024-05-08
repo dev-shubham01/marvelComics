@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import styles from "./MainScreen.module.css";
-import { fetchComics, fetchComicsByCharacterId } from "../../lib/utils";
+import { fetchComics } from "../../lib/utils";
 import MovieCard from "../MovieCard/MovieCard";
 import { useQuery } from "@tanstack/react-query";
 import { CircularProgress } from "@mui/material";

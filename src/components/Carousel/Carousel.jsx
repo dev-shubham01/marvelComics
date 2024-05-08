@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import CarouselCards from "../CarouselCard/CarouselCards";
-import axios from "axios";
+
 import styles from "./Carousel.module.css";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
@@ -9,7 +9,7 @@ import { fetchCharacters } from "../../lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { CircularProgress } from "@mui/material";
 
-export default function ({
+export default function Home ({
   handleSelectedComicId,
   handleDeselectedComicId,
   clearFilter,
@@ -49,7 +49,6 @@ export default function ({
     if (index > -1) {
       tempSelectedCharacters.splice(index, 1);
       handleDeselectedComicId(id, character);
-      console.log(character, "cccccccccccccccccccc");
     } else {
       tempSelectedCharacters.push(id);
       handleSelectedComicId(id, character);
