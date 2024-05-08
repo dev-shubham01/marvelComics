@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CarouselCards from "../CarouselCard/CarouselCards";
 import axios from "axios";
 import styles from "./Carousel.module.css";
