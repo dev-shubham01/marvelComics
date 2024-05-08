@@ -29,7 +29,7 @@ export default function MainScreen({
     filteredComics.length > 0
       ? setComics(filteredComics)
       : setComics(comic?.data?.results);
-  }, [isLoading, filteredComics, clearFilter]);
+  }, [isLoading, filteredComics, clearFilter,comic?.data?.results,refetch]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -41,13 +41,13 @@ export default function MainScreen({
     filteredComics.length > 0
       ? setComics(filteredComics)
       : setComics(comic?.data?.results);
-  }, [isLoading, filteredComics, clearFilter]);
+  }, [isLoading, filteredComics, clearFilter,comic?.data?.results,refetch]);
  
     const currentPageComics = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * recordPerPage;
     const lastPageIndex = firstPageIndex + recordPerPage;
     return comics?.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, comics, filteredComics, recordPerPage]);
+  }, [currentPage, comics, recordPerPage]);
 
   return (
     <div className={styles.mainScreen}>
