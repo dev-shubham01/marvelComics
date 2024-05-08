@@ -15,6 +15,7 @@ export default function Home() {
   const [clearFilter, setClearFilter] = useState(false);
   const [allSearchedComics, setAllSearchedComics] = useState({});
   const [selectedCharacter, setSelectedCharacter] = useState([]);
+  // when user click Clear All Filter then reset all the values
   useEffect(() => {
     if (clearFilter ) {
       setAllSearchedComics([]);
@@ -24,7 +25,7 @@ export default function Home() {
       setSelectedCharacter([]);
     }
   }, [clearFilter]);
-
+  // code to fetch comics when user select character from carousel 
   useQuery({
     queryKey: ["comics", selectedComicId],
     queryFn: async () => {
@@ -40,13 +41,13 @@ export default function Home() {
     },
     enabled: !!selectedComicId,
   });
-
+ // get selected character id 
   const handleSelectedComicId = (id, character) => {
     console.log(id);
     setSelectedComicId(id);
     setSelectedCharacter((prev) => [...prev, character?.name]);
   };
-
+  // when user deselect the character from character then this function helps to get the id of the deselected character
   const handleDeselectedComicId = (id, character) => {
     let allSearchedComicsKeys = Object.keys(allSearchedComics);
     let allLeftSearchedComicsAfterDeselect = allSearchedComicsKeys.filter(
@@ -72,7 +73,7 @@ export default function Home() {
   const handleSearchBar = (searchValue) => {
     setSearchText(searchValue);
   };
-
+  // when user enter comic name in search bar and press enter key then search the value
   const handleSearch = (searchValue) => {
     if (searchValue === "Enter") setSearchValue(searchText);
   };
@@ -90,6 +91,7 @@ export default function Home() {
         handleDeselectedComicId={handleDeselectedComicId}
         clearFilter={clearFilter}
       />
+      
       {searchValue && searchValue.length > 0 ? (
         <div className={styles.searchScreen}>
           <SearchScreen

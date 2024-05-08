@@ -16,6 +16,8 @@ export default function Home ({
 }) {
   const [characters, setCharacters] = useState([]);
   const [selectedCharactersIds, setSelectedCharactersIds] = useState([]);
+
+  // fetch character name to display in the carousel
   const { isLoading, data: character } = useQuery({
     queryKey: ["characters"],
     queryFn: fetchCharacters,
@@ -29,6 +31,7 @@ export default function Home ({
       setSelectedCharactersIds([]);
     }
   }, [clearFilter]);
+  // code to implement carousel 
   let box = document.querySelector("#carouselcontainer");
 
   const btnpressprev = () => {
@@ -42,7 +45,7 @@ export default function Home ({
     box.scrollLeft = box.scrollLeft + width;
     console.log(width);
   };
-
+  // function to get ids and character detail of all the selected characters from carousel
   const setSelectedIdsFunction = (id, character) => {
     let tempSelectedCharacters = selectedCharactersIds;
     const index = tempSelectedCharacters.indexOf(id);
@@ -57,7 +60,7 @@ export default function Home ({
   return (
     <div className={styles.carouselContainer}>
       {isLoading ? (
-        <CircularProgress style={{ color: "red" }} />
+        <CircularProgress style={{ color: "red" }} /> // display loader until user data is not loaded
       ) : (
         <>
           {" "}

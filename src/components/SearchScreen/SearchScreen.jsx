@@ -11,7 +11,8 @@ export default function SearchScreen({ searchValue, closeSearch }) {
   const [searchComics, setSearchComics] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const resultPerPage = 4;
+  const resultPerPage = 4; // at search screen only four comics will apperar in a page
+  // function to fetch data based on the search comics
   const { isLoading: isSearchResultLoading, data: searchResultComics } =
     useQuery({
       queryKey: ["searchResult", searchValue],
@@ -24,7 +25,7 @@ export default function SearchScreen({ searchValue, closeSearch }) {
   useEffect(() => {
     if (!isSearchResultLoading) setSearchComics(searchResultComics);
   }, [searchValue, isSearchResultLoading,searchResultComics]);
-
+ // using useMemo so that we don't need to calculate these values again unless dependecies changes
   const currentPageComics = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * resultPerPage;
     const lastPageIndex = firstPageIndex + resultPerPage;
@@ -64,7 +65,7 @@ export default function SearchScreen({ searchValue, closeSearch }) {
           </>
         )}
       </div>
-      
+    
       <Pagination
         currentPage={currentPage}
         totalCount={searchComics?.length}

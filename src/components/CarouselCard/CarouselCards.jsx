@@ -10,7 +10,7 @@ export default function CarouselCards({
   clearFilter,
 }) {
   const [select, setSelect] = useState(false);
-
+ // when user click clear all filter then deselect all the characters
   useEffect(() => {
     setSelect(false);
   }, [clearFilter]);

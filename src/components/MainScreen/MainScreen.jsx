@@ -18,12 +18,15 @@ export default function MainScreen({
   const [recordPerPage, setRecordsPerPage] = useState(10);
 
   const [currentPage, setCurrentPage] = useState(1);
-
+  // fetch comics to display in home page as suggestions
   const {
     isLoading,
     data: comic,
     refetch,
   } = useQuery({ queryKey: ["comics"], queryFn: fetchComics });
+  
+// when user select character from carousel then display data based on that 
+// when user click clear all button then reseting the comics to display at home page
   useEffect(() => {
     if (clearFilter) {
       refetch();
@@ -46,7 +49,7 @@ export default function MainScreen({
       ? setComics(filteredComics)
       : setComics(comic?.data?.results);
   }, [isLoading, filteredComics, clearFilter,comic?.data?.results,refetch]);
- 
+   // using useMemo for memoization and making react applicaiton faster
     const currentPageComics = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * recordPerPage;
     const lastPageIndex = firstPageIndex + recordPerPage;
